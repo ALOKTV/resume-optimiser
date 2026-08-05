@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Optimizer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient background elements -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <main>
+    <header>
+      <div class="logo">A!</div>
+      <h2>Resume Optimizer</h2>
+    </header>
+
+    <section class="hero">
+      <h1>Tailor your resume for the exact job.</h1>
+      <p>Paste a job description and your default resume to generate a truthful ATS-optimized resume with warnings for unsupported keywords.</p>
+    </section>
+
+    <section class="workspace">
+      <form class="glass-panel form-card" id="optimizer-form">
+        <div class="field" style="flex: 1; display: flex; flex-direction: column;">
+          <label for="jd">Job description</label>
+          <textarea id="jd" class="textarea-main" placeholder="Paste the full job description, requirements, responsibilities, skills, experience, and education details..."></textarea>
+        </div>
+
+        <div class="field" style="flex: 1; display: flex; flex-direction: column;">
+          <label for="resume-text">Default resume</label>
+          <label class="file-drop compact-drop" id="drop-zone" for="resume">
+            <input type="file" id="resume" accept=".txt,.md,.rtf,.docx,.pdf" />
+            <strong>Choose or drag resume file</strong>
+            <p class="file-name" id="file-name">Optional: PDF, DOCX, TXT, MD, RTF</p>
+          </label>
+          <textarea id="resume-text" class="textarea-main" placeholder="Paste your master/default resume here. The optimizer will only use claims supported by this resume."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="prompt">Refinement prompt</label>
+          <textarea id="prompt" class="textarea-prompt" placeholder="Optional: add instructions like 'make it more React focused', 'shorten summary', 'prioritize projects', or 'optimize for frontend role'. Run again with a new prompt until satisfied."></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn-primary" id="run-button">Optimize Resume</button>
+          <button type="button" class="btn-secondary" id="clear-button">Clear</button>
+        </div>
+        <div class="status" id="status"></div>
+      </form>
+
+      <section class="glass-panel results-card">
+        <div id="results-container" style="height: 100%;">
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 3H5C3.89 3 3.01 3.89 3 5V19C3 20.11 3.89 21 5 21H19C20.11 21 21 20.11 21 19V5C21 3.89 20.11 3 19 3ZM19 19H5V5H19V19ZM14 17H7V15H14V17ZM17 13H7V11H17V13ZM17 9H7V7H17V9Z"/>
+            </svg>
+            <p>Your optimized resume, ATS score, matched keywords, missing keywords, and unsupported keyword warnings will appear here.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="bundle.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
